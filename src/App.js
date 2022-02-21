@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Title from "./asset/image/Title.png";
+import { Characters } from "./components/Characters";
+import "./style/App.scss";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <button className="favorite-btn">FAVORITOS</button>
+        <button className="add-btn">AGREGAR</button>
       </header>
+      <section className="main-init">
+        <img src={Title} alt="logo-img" className="logo" />
+        <h1 className="indication"> Selecciona tu filtro</h1>
+        <section>
+          <button className="studients btn btn-outline-primary">ESTUDIANTES</button>
+          <button className="staff btn btn-outline-primary">STAFF</button>
+        </section>
+      </section>
+
+      <Characters />
     </div>
   );
 }

@@ -1,0 +1,93 @@
+$primary-color: rgba(0, 0, 0, 0.452);
+$hover-color:  #6B63B599;
+$active-color: #6B63B5;
+
+@mixin button-bg($bg) {
+    background: $bg;
+    &:hover {
+      background:$hover-color;
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:$active-color;
+    } 
+  }
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(20, 20, 20);
+    background-image: url(../asset/image/Background.png);
+    background-repeat: no-repeat;
+    background-position:top;
+    background-size:contain;
+    color:#ffff;
+
+    header{
+        float: right;
+        margin: {
+            right: 10rem;
+            bottom: 5rem;
+        }
+
+        .favorite-btn, .add-btn {
+            background-color:$active-color;
+            border-color: #6B63B5;
+            color: #ffff;
+            width: 12rem;
+            height: 2.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            font-weight:400;
+            
+        }
+    }
+
+    .main-init{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+
+        .logo{
+            margin: {
+                top: 5rem;
+                bottom:3rem;
+            }
+            width: 40vh;
+            align-self:center;
+        }
+
+        .indication{
+            align-self: center;
+            font-size: 3rem;
+            margin: {
+                top:0%;
+                bottom: 8vh;
+            }
+        }
+
+        .studients, .staff{
+            color: #ffff;
+            border-color: $active-color;
+            width: 20rem ;
+            height: 4.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            @include button-bg($primary-color);
+
+            margin: {
+                top:0vh;
+                right: 6vh;
+                left: 6vh;
+                bottom: 8vh;
+            }
+
+        }
+
+    }
+    
+}
