@@ -1,32 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Characters } from "./Characters";
 import { useGetCharacters } from "../hooks/useGetCharacters";
 ;
 
 export const ButtonFilter = () => {
+  const [ students, setStudents]= useState({})
   const data = useGetCharacters();
 
   const filterStudent = () => {
-    console.log( data.filter((p) => p.hogwartsStudent === true))
-    return  data.filter((p) => p.hogwartsStudent === true);
+    const getStudent=data.filter((p) => p.hogwartsStudent === true);
+    console.log(getStudent)
+    return  getStudent;
   };
+  
 
   const filterStaff = () => {
-    console.log(data.filter((p) => p.hogwartsStaff === true))
     return data.filter((p) => p.hogwartsStaff === true);
   };
+  console.log(filterStaff());
   return (
     <>
       <section>
         <button
           className="studients btn btn-outline-primary"
-          onClick={()=>{
-            data &&<Characters characters={filterStudent()}/>
-          }}
+          onClick={()=>{setStudents(filterStudent)}}
         >
           ESTUDIANTES
         </button>
-        <button className="staff btn btn-outline-primary" onClick={filterStaff}>STAFF</button>
+        <button className="staff btn btn-outline-primary">STAFF</button>
       </section>
     </>
   );

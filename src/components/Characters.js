@@ -5,7 +5,7 @@ import { Item } from './Item';
 
 
 export const Characters = ({characters}) => {
-  console.log(characters)
+  //console.log(characters)
   return (
     <section className='main-container'>
         <div className='characterList'>
