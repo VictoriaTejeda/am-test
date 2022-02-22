@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import { ButtonHeader } from "./components/ButtonHeader";
 import { Characters } from "./components/Characters";
 import { useGetCharacters } from "./hooks/useGetCharacters";
@@ -7,16 +7,22 @@ import "./style/App.scss";
 
 function App() {
   const characters = useGetCharacters();
-  const [students, setStudents] = useState();
-  const [staff, setStaff] = useState();
+  const [hogwartsCharacters, sethogwartsCharaters]= useState(characters);
+ 
   const filterStudent = () => {
-    return characters.filter((p) => p.hogwartsStudent === true);
+    const hogwartsStudents= characters.filter((p) => p.hogwartsStudent === true);
+    sethogwartsCharaters(hogwartsStudents);
   };
-  console.log(students)
+
   const filterStaff = () => {
-    console.log(characters.filter((p) => p.hogwartsStaff === true));
-    return characters.filter((p) => p.hogwartsStaff === true);
+    const hogwartsStaff= characters.filter((p) => p.hogwartsStaff === true);
+    sethogwartsCharaters(hogwartsStaff);
   };
+
+  useEffect(()=>{
+    sethogwartsCharaters(characters);
+  },[characters])
+
   return (
     <div className="App">
       <ButtonHeader />
@@ -26,7 +32,7 @@ function App() {
         <section>
           <button
             className="studients btn btn-outline-primary"
-            onClick={()=>{setStudents(filterStudent);
+            onClick={()=>{filterStudent()
             }
           }
           >
@@ -34,13 +40,13 @@ function App() {
           </button>
           <button
             className="staff btn btn-outline-primary"
-            onClick={()=>{setStaff(filterStaff)}}
+            onClick={()=>{filterStaff()}}
           >
             STAFF
           </button>
         </section>
       </section>
-      {students ? <Characters characters={students} /> :<Characters characters={characters}/>}
+   <Characters characters={hogwartsCharacters}/>
     </div>
   );
 }
