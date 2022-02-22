@@ -1,24 +1,21 @@
 import Title from "./asset/image/Title.png";
+import { ButtonHeader } from "./components/ButtonHeader";
 import { Characters } from "./components/Characters";
+import { ButtonFilter } from "./components/ButtonFilter";
+import { useGetCharacters } from './hooks/useGetCharacters';
 import "./style/App.scss";
 
 function App() {
+  const characters =useGetCharacters();
   return (
     <div className="App">
-      <header>
-        <button className="favorite-btn">FAVORITOS</button>
-        <button className="add-btn">AGREGAR</button>
-      </header>
+      <ButtonHeader/>
       <section className="main-init">
         <img src={Title} alt="logo-img" className="logo" />
         <h1 className="indication"> Selecciona tu filtro</h1>
-        <section>
-          <button className="studients btn btn-outline-primary">ESTUDIANTES</button>
-          <button className="staff btn btn-outline-primary">STAFF</button>
-        </section>
+        <ButtonFilter/>
       </section>
-
-      <Characters />
+      <Characters characters={characters}/>
     </div>
   );
 }

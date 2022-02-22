@@ -1,11 +1,11 @@
 import React from 'react'
 import { Item } from './Item';
-import { useGetCharacters } from '../hooks/useGetCharacters';
 
 
 
-export const Characters = () => {
-    const characters =useGetCharacters();
+
+export const Characters = ({characters}) => {
+  console.log(characters)
   return (
     <section className='main-container'>
         <div className='characterList'>

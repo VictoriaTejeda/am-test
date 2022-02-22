@@ -1,6 +1,7 @@
 $primary-color: rgba(0, 0, 0, 0.452);
 $hover-color:  #6B63B599;
 $active-color: #6B63B5;
+$font-color1: #FFFf;
 
 @mixin button-bg($bg) {
     background: $bg;
@@ -22,25 +23,63 @@ body{
     background-repeat: no-repeat;
     background-position:top;
     background-size:contain;
-    color:#ffff;
+    color: $font-color1;
 
-    header{
+    .container-btn-menu{
         float: right;
         margin: {
             right: 10rem;
             bottom: 5rem;
         }
-
+        
         .favorite-btn, .add-btn {
             background-color:$active-color;
-            border-color: #6B63B5;
-            color: #ffff;
-            width: 12rem;
-            height: 2.5rem;
+            border-color: $active-color;
+            color:$font-color1;
+            width: 13rem;
+            height: 3rem;
             font-size: 1.2rem;
             letter-spacing: 0.2em;
             font-weight:400;
             
+        }
+        .favorite-btn{
+            border-bottom-left-radius: 2vh;
+            i{
+                color: #FFFf;
+                align-self: center;
+                margin: 1vh;
+                font-size:1.3rem
+            }
+        }
+        .add-btn{
+            border-bottom-right-radius: 2vh;
+            i{
+                color: #FFFf;
+                align-self: center;
+                margin: 1vh;
+                font-size:1.4rem
+            }
+        }
+        .dropdown-menu{
+            width:26rem;
+            background-color:$active-color;
+            color: $font-color1;
+            font-size: 1.3rem;
+            border-bottom-left-radius: 2vh;
+            border-bottom-right-radius: 2vh;
+
+            li{
+                margin: {
+                    top:1vh;
+                    left:2.3vh;
+                    bottom: 1vh;
+                }
+            }
+            hr{
+                margin-left: 2.1vh;
+                margin-right: 2.1vh;
+            }
         }
     }
 
@@ -71,7 +110,7 @@ body{
         }
 
         .studients, .staff{
-            color: #ffff;
+            color: $font-color1;
             border-color: $active-color;
             width: 20rem ;
             height: 4.5rem;
