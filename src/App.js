@@ -1,52 +1,41 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import { ButtonHeader } from "./components/ButtonHeader";
 import { Characters } from "./components/Characters";
-import { useGetCharacters } from "./hooks/useGetCharacters";
+//import { useGetCharacters } from "./hooks/useGetCharacters";
+import { useFilterData } from "./hooks/useFilterData";
 import Title from "./asset/image/Title.png";
 import "./style/App.scss";
 
 function App() {
-  const characters = useGetCharacters();
-  const [hogwartsCharacters, sethogwartsCharaters]= useState(characters);
- 
-  const filterStudent = () => {
-    const hogwartsStudents= characters.filter((p) => p.hogwartsStudent === true);
-    sethogwartsCharaters(hogwartsStudents);
-  };
-
-  const filterStaff = () => {
-    const hogwartsStaff= characters.filter((p) => p.hogwartsStaff === true);
-    sethogwartsCharaters(hogwartsStaff);
-  };
-
-  useEffect(()=>{
-    sethogwartsCharaters(characters);
-  },[characters])
-
+  const {hogwartsCharacters, filterStudent, filterStaff, allCharacters}= useFilterData()
   return (
     <div className="App">
       <ButtonHeader />
-      <section className="main-init">
-        <img src={Title} alt="logo-img" className="logo" />
+      <section className="init">
+        <img src={Title} alt="logo-img" className="logo" onClick={() => {
+              allCharacters();
+            }} />
         <h1 className="indication"> Selecciona tu filtro</h1>
-        <section>
+        <section className="container-btn-filter">
           <button
             className="studients btn btn-outline-primary"
-            onClick={()=>{filterStudent()
-            }
-          }
+            onClick={() => {
+              filterStudent();
+            }}
           >
             ESTUDIANTES
           </button>
           <button
             className="staff btn btn-outline-primary"
-            onClick={()=>{filterStaff()}}
+            onClick={() => {
+              filterStaff();
+            }}
           >
             STAFF
           </button>
         </section>
       </section>
-   <Characters characters={hogwartsCharacters}/>
+      <Characters characters={hogwartsCharacters} />
     </div>
   );
 }

@@ -5,9 +5,8 @@ import { Item } from './Item';
 
 
 export const Characters = ({characters}) => {
-console.log(characters)
   return (
-    <section className='main-container'>
+    <section>
         <div className='characterList'>
             {characters.map(character =>(
                <Item character={character} key={character.id} />

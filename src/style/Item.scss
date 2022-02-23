@@ -1,79 +1,157 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Open+Sans:wght@300&display=swap');
-$font-color1: #081F32;
-$font-color2:  #374a59;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&family=Open+Sans:wght@300&display=swap");
+$font-color1: #081f32;
+$font-color2: #374a59;
+$gryfindor: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
+$slytherin: linear-gradient(135deg, #1c792b 0%, #82e95e 100%);
+$ravenclaw: linear-gradient(135deg, #ffc700 0%, #fff388 100%);
+$hufflepuff: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
+
+$breakpoint-xs: 360px;
+$breakpoint-sm: 767px;
+$breakpoint-md: 1023px;
+$breakpoint-lg: 1360px;
+
+@mixin media($media) {
+  @if $media == xs {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+  @else if $media == sm {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $media == md {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) { @content; }
+  }
+  @else if $media == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+}
 
 
-.characterList{
+.characterList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  margin-top: 10vh;
+
+  .container-card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-self: center;
-    justify-content: center;
-    margin-top: 10vh;
-
-    .container-card {
-        display: flex;
-        background-color: #fff;
-        background-blend-mode: Pass through;
-        color:$font-color2;
-        width: 40rem;
-        height: 21rem;
-        border-radius: 1rem;
-        font-family:'Open Sans', sans-serif;
+    background-color: #fff;
+    background-blend-mode: Pass through;
+    color: $font-color2;
+    width: 40rem;
+    height: 21rem;
+    border-radius: 1rem;
+    font-family: "Open Sans", sans-serif;
+    margin: {
+      right: 4vh;
+      left: 4vh;
+      top: 5vh;
+      bottom: 4vh;
+      
+    }
+    @include media(xs) {
+        flex-direction:column;
+        width: 20vh;
         margin: {
-            right: 4vh;
-            left: 4vh;
-            top: 5vh;
-            bottom: 4vh;
-        }
-      
-        .house {
-          display: flex;
-          justify-content: center;
-          justify-items: center;
-          background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
-          width: 16rem;
-          height: 21rem;
-          border-bottom-left-radius:16px;
-          border-top-left-radius: 16px;
-          .character{
-              align-self: center;
-              border-radius: 50%;
-              width: 165px;
-              height: 165px;
-          }
-        }
-      
-        .info{
+            right: 2vh;
+            left: 2vh;
+            top: 2.5vh;
+            bottom: 2vh;
             
-            p{
-                display: flex;
-                justify-content: space-between;
-                width: 20rem;
-                margin: 3vh;
-                font-size: 1.2rem;
-                .favorite-icon{
-                    width: 1.6rem;
-                }
-            }
-        }
-      
-        .card-title{
-            margin:2.5vh;
-            font-weight: 800;
-            color:$font-color1;
-            font-size: 2rem;
-        }
-      
-        li{
-            list-style: none;
-            font-size: 1.1rem;
-            margin: {
-                left:2.5vh;
-                bottom: 1vh;
-            }
-      
+          }
+      }
+    .house {
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      background-image: linear-gradient(
+        to right bottom,
+        #cbb188,
+        #d2c09c,
+        #d9ceb1,
+        #e2dcc6,
+        #eceadc
+      );
+      width: 16rem;
+      height: 21rem;
+      border-bottom-left-radius: 16px;
+      border-top-left-radius: 16px;
+      @include media(xs) {
+        flex-direction:column;
+        width: 20vh;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius:0%;
+      }
+      .character {
+        align-self: center;
+        border-radius: 50%;
+        width: 10rem;
+        height: 10rem;
+        @include media(xs) {
+            width:12vh;
+            height:12vh ;
+            margin: 2vh;
         }
       }
-      
+    }
+    .Gryffindor {
+      background: $gryfindor;
+    }
+
+    .Slytherin {
+      background: $slytherin;
+    }
+    .Ravenclaw {
+      background: $ravenclaw;
+    }
+    .Hufflepuff {
+      background: $hufflepuff;
+    }
+    .info {
+      p {
+        display: flex;
+        justify-content: space-between;
+        width: 20rem;
+        margin: 3vh;
+        font-size: 1.2rem;
+        @include media(xs) {
+            width:18vh ;
+            font-size: 1rem;
+        }
+        .favorite-icon {
+          width: 1rem;
+        }
+      }
+    }
+
+    .false {
+      background-color: #cccccc;
+      width: 60%;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      @include media(xs){
+          width: 100%;
+          border-top-right-radius:0;
+
+      }
+    }
+
+    .card-title {
+      margin: 2.5vh;
+      font-weight: 800;
+      color: $font-color1;
+      font-size: 2rem;
+    }
+
+    li {
+      list-style: none;
+      font-size: 1.1rem;
+      margin: {
+        left: 2.5vh;
+        bottom: 1vh;
+      }
+    }
+  }
 }

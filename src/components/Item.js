@@ -6,14 +6,14 @@ export const Item = ({ character }) => {
   return (
     <div className="container-item">
       <section className="container-card">
-        <div className="house">
+        <div className={`house ${character.house}`}>
           <img
             src={character.image}
             className="character"
             alt={character.name}
           />
         </div>
-        <div className="info">
+        <div className={`info ${character.alive}`}>
           <p>
             {character.alive === true ? "VIVO " : " FINADO"}/{" "}
             {character.hogwartsStudent === true
