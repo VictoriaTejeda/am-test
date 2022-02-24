@@ -68,7 +68,13 @@ body {
       margin: 0;
       align-self: center;
     }
-
+    @include media(sm){
+      margin: {
+        right: 2.5vh;
+        bottom: 2vh;
+      }
+    
+    }
     .favorite-btn,
     .add-btn {
       background-color: $active-color;
@@ -84,6 +90,11 @@ body {
         width:23vh;
         font-size:2vh;
         align-self: center;
+      }
+      @include media(sm){
+        width:20vh;
+        height: 4vh;
+        font-size:1.5vh;
       }
     }
     .favorite-btn {
@@ -118,6 +129,12 @@ body {
         border-top-right-radius: 2vh;
       }
     }
+    .modal-backdrop {
+      @include media(xs){
+       width: 0%;
+       height: 0%;
+      }
+  }
     .dropdown-menu {
       width: 26rem;
       background-color: $active-color;
@@ -125,7 +142,18 @@ body {
       font-size: 1.3rem;
       border-bottom-left-radius: 2vh;
       border-bottom-right-radius: 2vh;
-
+      @include media(xs) {
+      border-bottom-left-radius:0vh;
+      border-bottom-right-radius:0vh;
+      border-top-left-radius: 2vh;
+      border-top-right-radius: 2vh;
+      width: 45vh;
+      font-size: 1rem;
+      }
+      @include media(sm){
+      width: 40vh;
+      font-size: 1rem;
+      }
       li {
         margin: {
           top: 1vh;
@@ -174,20 +202,35 @@ body {
           width: 30vh;
         }
       }
+      @include media(sm) {
+        width: 25vh;
+        margin: {
+          top: 1rem;
+          bottom: 1rem;
+        }
+        &:hover {
+          width: 30vh;
+        }
+      }
+      
     }
 
     .indication {
       align-self: center;
-      font-size: 3rem;
+      font-size: 6vh;
       margin: {
         top: 0%;
-        bottom: 8vh;
+        bottom: 10vh;
       }
       @include media(xs) {
         font-size: 2rem;
         line-height: 1.2rem;
         margin-bottom: 4vh;
       }
+      @include media(sm){
+        font-size: 3vh;
+        margin-bottom:2.5vh;
+      } 
     }
 
     .container-btn-filter {
@@ -217,12 +260,23 @@ body {
         }
         @include media(xs){
           width: 20vh;
-          height: 4rem;
+          height:6vh;
           font-size: 1rem;
         letter-spacing: 0em;
           margin: {
             right: 2vh;
             left: 1.5vh;
+            bottom: 1vh;
+          }
+        }
+        @include media(sm){
+          width: 25vh;
+          height: 5vh;
+          font-size: 1rem;
+        letter-spacing: 0em;
+          margin: {
+            right: 1.2vh;
+            left: 1.2vh;
             bottom: 1vh;
           }
         }
