@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Modal } from "./Modal";
+
 export const ButtonHeader = () => {
+  const [modalState, setModalState] = useState(false);
   return (
     <>
       <section className="container-btn-menu">
@@ -23,47 +26,11 @@ export const ButtonHeader = () => {
           </ul>
           <button
             className="add-btn"
-            data-bs-toggle="modal"
-            data-bs-target="#crate-modal"
+            onClick={()=>{setModalState(true)}}
           >
             AGREGAR <i className="bi bi-person-plus-fill"></i>
           </button>
-          <div
-            className="modal fade"
-            id="crate-modal"
-            tabIndex="-1"
-            aria-labelledby="crate-modalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="crate-modalLabel">
-                    Modal title
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body">...</div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" className="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Modal modalState={modalState} setModalState={setModalState}></Modal>
         </div>
       </section>
     </>

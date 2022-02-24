@@ -1,0 +1,92 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+
+  .container-modal {
+    width: 80vh;
+    min-height: 40vh;
+    background-color: #fff;
+    position: relative;
+    border-radius: 2vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+    color: black;
+
+    @media screen and (max-width: 600px){
+      width: 200%;
+      height:60vh ;
+      overflow-y: scroll;
+    }
+
+    .bi{
+        float: right;
+        font-size: 1.3rem;
+        &:hover{
+            color:red;
+            font-size: 1.5rem;
+        }
+    }
+    .add-character {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+      margin: 2vh;
+
+      .input-add{
+          background-color:#e6ebeaea;
+          fill: Solid #263238;
+          border:#fff;
+          border-bottom: #263238f8;
+          height:6vh;
+          box-shadow: rgba(146, 146, 151, 0.541) 0px 4px 5px 0px;
+          font-size: 1.3rem;
+          margin:  {
+              top:1.2vh;
+              left: 0;
+              bottom: 1.2vh;
+          };
+      }
+    }
+    .container-radio-btn{
+      display: flex;
+      flex-direction: column;
+      margin-top: 1vh;
+      font-size: 1rem;
+      .inputs{
+        margin-left: 2vh;
+        margin-top: 2vh;
+    }
+    }
+    
+    .btn-add{
+        width: 20vh;
+        height: 6vh;
+        margin: 2vh;
+        background-color: rgba(0, 0, 0, 0.6);
+        border: Solid #6B63B5;
+        color: #fff;
+        font-size: 1.3rem;
+    }
+    .img-input{
+        width: 40vh;
+        height: 3vh;
+    }
+  }
+
+}
