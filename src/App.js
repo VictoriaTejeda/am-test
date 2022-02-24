@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ButtonHeader } from "./components/ButtonHeader";
+import { Characters } from "./components/Characters";
+//import { useGetCharacters } from "./hooks/useGetCharacters";
+import { useFilterData } from "./hooks/useFilterData";
+import Title from "./asset/image/Title.png";
+import "./style/App.scss";
 
 function App() {
+  const {hogwartsCharacters, filterStudent, filterStaff, allCharacters}= useFilterData()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ButtonHeader />
+      <section className="init">
+        <img src={Title} alt="logo-img" className="logo" onClick={() => {
+              allCharacters();
+            }} />
+        <h1 className="indication"> Selecciona tu filtro</h1>
+        <section className="container-btn-filter">
+          <button
+            className="studients btn btn-outline-primary"
+            onClick={() => {
+              filterStudent();
+            }}
+          >
+            ESTUDIANTES
+          </button>
+          <button
+            className="staff btn btn-outline-primary"
+            onClick={() => {
+              filterStaff();
+            }}
+          >
+            STAFF
+          </button>
+        </section>
+      </section>
+      <Characters characters={hogwartsCharacters} />
     </div>
   );
 }
