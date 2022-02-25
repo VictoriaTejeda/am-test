@@ -1,9 +1,9 @@
 import {useState, useEffect } from 'react'
-import { useGetCharacters } from './useGetCharacters';
+import { useGetCharacters} from './useGetCharacters';
+
 
 export const useFilterData = () => {
  const characters = useGetCharacters();
-
   const [hogwartsCharacters, sethogwartsCharaters]= useState([]);
  
   const filterStudent = () => {

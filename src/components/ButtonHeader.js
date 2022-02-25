@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "./Modal";
 
-export const ButtonHeader = () => {
+export const ButtonHeader = ({allCharacters}) => {
   const [modalState, setModalState] = useState(false);
   return (
     <>
