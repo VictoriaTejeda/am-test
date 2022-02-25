@@ -1,30 +1,13 @@
-import React, { useRef } from "react";
+import React from "react";
+import { useAddCharacter } from "../hooks/useAddCharacter";
 import { useFilterData } from "../hooks/useFilterData";
 import "../style/Modal.scss";
 
 export const Modal = ({ modalState, setModalState }) => {
-  const {allCharacters} = useFilterData();
 
-  const form = useRef(null);
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(form.current);
-    const data = {
-      name: formData.get("name"),
-      eyescolor: formData.get("eyes-color"),
-      haircolor: formData.get("hair-color"),
-      house: formData.get("house"),
-      patronus: formData.get("patronus"),
-      birthday: formData.get("birthday"),
-      specie: formData.get("birthday"),
-      gender: formData.get("gender"),
-      alive: formData.get("alive"),
-      role: formData.get("role"),
-      url: formData.get("url-img"),
-    };
-    console.log(data);
-  };
+  const { allCharacters } = useFilterData();
+  const { form, disable, disabled, handleSubmit, inputDisable, inputDisabled } =
+    useAddCharacter();
 
   return (
     <>
@@ -36,7 +19,7 @@ export const Modal = ({ modalState, setModalState }) => {
                 className="bi bi-x-circle"
                 onClick={() => {
                   setModalState(false);
-                  allCharacters()
+                  allCharacters();
                 }}
               ></i>
               <h1>Agrega un personaje</h1>
@@ -120,15 +103,21 @@ export const Modal = ({ modalState, setModalState }) => {
                     <input
                       className="inputs"
                       type="radio"
-                      value="hogwartsStudent"
-                      name="role"
+                      value="true"
+                      id="role"
+                      name="hogwartsStudent"
+                      disabled={disable}
+                      onChange={inputDisabled}
                     />{" "}
                     Estudiante
                     <input
                       className="inputs"
                       type="radio"
-                      value="hogwartsStaff"
-                      name="role"
+                      value="true"
+                      id="role"
+                      name="hogwartsStaff"
+                      disabled={disabled}
+                      onChange={inputDisable}
                     />{" "}
                     Staff
                   </div>
