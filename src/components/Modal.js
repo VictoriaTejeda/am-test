@@ -3,11 +3,21 @@ import { useAddCharacter } from "../hooks/useAddCharacter";
 import { useFilterData } from "../hooks/useFilterData";
 import "../style/Modal.scss";
 
-export const Modal = ({ modalState, setModalState }) => {
-
+export const Modal = ({ modalState, setModalState, addCharacter }) => {
   const { allCharacters } = useFilterData();
-  const { form, disable, disabled, handleSubmit, inputDisable, inputDisabled } =
-    useAddCharacter();
+  const {
+    form,
+    disable,
+    disabled,
+    handleSubmit,
+    inputDisable,
+    inputDisabled,
+    dataCharacter,
+  } = useAddCharacter();
+
+  const CharacterSubmit = () => {
+   addCharacter(dataCharacter);
+  };
 
   return (
     <>
@@ -134,7 +144,13 @@ export const Modal = ({ modalState, setModalState }) => {
                   placeholder="https://static.wikia.nocookie.net/esharrypotter/images/2/2d/Dobby_el_elfo.PNG"
                 ></input>
               </div>
-              <button className="btn-add" onClick={handleSubmit}>
+              <button
+                className="btn-add"
+                onClick={(event) => {
+                  CharacterSubmit();
+                  handleSubmit(event);
+                }}
+              >
                 Guardar
               </button>
             </form>

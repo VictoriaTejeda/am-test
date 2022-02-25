@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
 
+
 export const useAddCharacter = () => {
+  
   const form = useRef(null);
   const [disabled, setdisabled] = useState(false);
   const [disable, setdisable] = useState(false);
+  const [dataCharacter, setDateCharacter] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,7 +25,7 @@ export const useAddCharacter = () => {
       hogwartsStudent: formData.get("hogwartsStudent"),
       image: formData.get("url-img"),
     };
-    console.log(data);
+    setDateCharacter(data);
   };
 
   const inputDisabled = () => {
@@ -31,12 +34,13 @@ export const useAddCharacter = () => {
   const inputDisable = () => {
     setdisable(true);
   };
-  return{
-      form,
-      disable,
-      disabled,
-      handleSubmit,
-      inputDisable,
-      inputDisabled
+  return {
+    form,
+    disable,
+    disabled,
+    handleSubmit,
+    inputDisable,
+    inputDisabled,
+    dataCharacter
   };
 };

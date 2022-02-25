@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const API =
   "http://localhost:5000/characters";
 
@@ -12,19 +13,16 @@ export async function getCharacter() {
   }
 }
 
- export async function saveCharacter() {
-  await axios.post(API,{
-    name: "",
-    eyeColour:"",
-    hairColour: "",
-    house: "",
-    patronus:"" ,
-    dateOfBirth: "",
-    species: "",
-    gender: "",
-    alive:"",
-    hogwartsStaff:"",
-    hogwartsStudent:"",
-    image: ""
-  })
+export async function saveCharacter(characterData){
+  try{
+    console.log(characterData);
+  //   const response= await axios({
+  //     url:API,
+  //     method: 'POST',
+  //     data:characterData
+  //   })
+  //   return response;
+  }catch(e){
+     console.log(e)
+   }
 }
