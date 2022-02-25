@@ -1,16 +1,18 @@
 import { useRef, useState } from "react";
-
+import { saveCharacter } from "../service";
 
 export const useAddCharacter = () => {
   
   const form = useRef(null);
   const [disabled, setdisabled] = useState(false);
   const [disable, setdisable] = useState(false);
-  const [dataCharacter, setDateCharacter] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
+    const isAlive= formData.get("alive")==='true'? true:false;
+    const ishogwartsStudent= formData.get("hogwartsStudent")==='true'? true:false;
+    const ishogwartsStaff= formData.get("hogwartsStaff")==='true'? true:false;
     const data = {
       name: formData.get("name"),
       eyeColour: formData.get("eyes-color"),
@@ -20,12 +22,14 @@ export const useAddCharacter = () => {
       dateOfBirth: formData.get("birthday"),
       species: formData.get("birthday"),
       gender: formData.get("gender"),
-      alive: formData.get("alive"),
-      hogwartsStaff: formData.get("hogwartsStaff"),
-      hogwartsStudent: formData.get("hogwartsStudent"),
+      alive:  isAlive,
+      hogwartsStaff: ishogwartsStaff,
+      hogwartsStudent: ishogwartsStudent,
       image: formData.get("url-img"),
     };
-    setDateCharacter(data);
+
+    setTimeout(() => saveCharacter(data), 1000)
+    ;
   };
 
   const inputDisabled = () => {
@@ -41,6 +45,5 @@ export const useAddCharacter = () => {
     handleSubmit,
     inputDisable,
     inputDisabled,
-    dataCharacter
   };
 };

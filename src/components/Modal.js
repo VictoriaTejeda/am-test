@@ -1,10 +1,8 @@
 import React from "react";
 import { useAddCharacter } from "../hooks/useAddCharacter";
-import { useFilterData } from "../hooks/useFilterData";
 import "../style/Modal.scss";
 
-export const Modal = ({ modalState, setModalState, addCharacter }) => {
-  const { allCharacters } = useFilterData();
+export const Modal = ({ modalState, setModalState }) => {
   const {
     form,
     disable,
@@ -12,12 +10,8 @@ export const Modal = ({ modalState, setModalState, addCharacter }) => {
     handleSubmit,
     inputDisable,
     inputDisabled,
-    dataCharacter,
   } = useAddCharacter();
 
-  const CharacterSubmit = () => {
-   addCharacter(dataCharacter);
-  };
 
   return (
     <>
@@ -29,7 +23,7 @@ export const Modal = ({ modalState, setModalState, addCharacter }) => {
                 className="bi bi-x-circle"
                 onClick={() => {
                   setModalState(false);
-                  allCharacters();
+                  window.location.reload(true);
                 }}
               ></i>
               <h1>Agrega un personaje</h1>
@@ -147,7 +141,6 @@ export const Modal = ({ modalState, setModalState, addCharacter }) => {
               <button
                 className="btn-add"
                 onClick={(event) => {
-                  CharacterSubmit();
                   handleSubmit(event);
                 }}
               >

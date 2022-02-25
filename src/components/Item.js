@@ -1,8 +1,21 @@
 import React from "react";
-import favorite from "../asset/image/favorite.svg";
+import { useDispatch, useSelector } from "react-redux";
+import{addFavorites, removeFavorites} from "../redux/actions"
 import "../style/Item.scss";
 
 export const Item = ({ character }) => {
+  const favorites= useSelector((state)=>state.favorite);
+  console.log(favorites)
+  const dispatch=useDispatch()
+
+  const addORDeleteFavorites=()=>{
+   if(favorites.find((favorite) => favorite.id ===character.id)){
+     dispatch(removeFavorites(character))
+   }else{
+     dispatch(addFavorites(character));
+   }
+  };
+
   return (
     <div className="container-item">
       <section className="container-card">
@@ -21,7 +34,7 @@ export const Item = ({ character }) => {
               : character.hogwartsStaff === true
               ? "STAFF"
               : ""}{" "}
-            <img src={favorite} className="favorite-icon" alt="add favorite" />
+              <i className="bi bi-bookmark favorite-icon" onClick={addORDeleteFavorites}></i>
           </p>
           <h4 className="card-title">{character.name}</h4>
 

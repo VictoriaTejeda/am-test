@@ -574,7 +574,21 @@
       "actor": "David Bradley",
       "alive": true,
       "image": "http://hp-api.herokuapp.com/images/filch.jpg"
+    },
+    {
+      "name": "Fred Weasley",
+      "eyeColour": "Negros",
+      "hairColour": "Pelirrojo",
+      "house": "Gryffindor",
+      "patronus": "Urraca",
+      "dateOfBirth": "1-04-1978",
+      "species": "1-04-1978",
+      "gender": "Male",
+      "alive": false,
+      "hogwartsStaff": false,
+      "hogwartsStudent": true,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_677992-MLM44046474019_112020-O.jpg",
+      "id": 26
     }
-    
   ]
 }
