@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { ButtonHeader } from "./components/ButtonHeader";
 import { Characters } from "./components/Characters";
 import { useFilterData } from "./hooks/useFilterData";
@@ -8,6 +9,7 @@ import "./style/App.scss";
 function App() {
 
   const {hogwartsCharacters, filterStudent, filterStaff, allCharacters}= useFilterData()
+
 
   return (
     <div className="App">
