@@ -5,7 +5,6 @@ import "../style/Item.scss";
 
 export const Item = ({ character }) => {
   const favorites= useSelector((state)=>state.favorite);
-  console.log(favorites)
   const dispatch=useDispatch()
 
   const addORDeleteFavorites=()=>{

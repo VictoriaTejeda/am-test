@@ -9,7 +9,7 @@ $hufflepuff: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
 $breakpoint-xs: 360px;
 $breakpoint-sm: 767px;
 $breakpoint-md: 1000px;
-$breakpoint-lg: 1360px;
+$breakpoint-lg: 1024px;
 
 @mixin media($media) {
   @if $media == xs {
@@ -28,8 +28,11 @@ $breakpoint-lg: 1360px;
 
 
 .characterList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin-top: 10vh;
   width: 100%;
 
@@ -80,6 +83,18 @@ $breakpoint-lg: 1360px;
             
           }      
       }
+
+      @include media(md) {
+        width: 40vw;
+        height: 25vw;
+        margin: {
+            right: 2vh;
+            left: 2vh;
+            top: 2.3vh;
+            bottom: 1.7vh;
+            
+          }      
+      }
       
     .house {
       display: flex;
@@ -110,6 +125,10 @@ $breakpoint-lg: 1360px;
         width: 12vh;
         height: 25vh;
       }
+      @include media(md) {
+        flex-direction:column;
+        height: 25vw;
+      }
 
       .character {
         align-self: center;
@@ -126,8 +145,14 @@ $breakpoint-lg: 1360px;
           height:10vh ;
           margin: 2vh;
         }
+        @include media(md) {
+          width:20vh;
+          height:20vh ;
+          margin: 2vh;
+        }
       }
      
+      
     }
     .Gryffindor {
       background: $gryfindor;
@@ -170,7 +195,14 @@ $breakpoint-lg: 1360px;
           font-size:1.4vh;
           margin: 1.5vh;
           
-      }
+      } @include media(md) {
+        width:18vw ;
+        font-size:3vh;
+        margin: 2vh;
+        
+    }
+
+
 
         .favorite-icon {
           width: 1rem;
@@ -210,6 +242,10 @@ $breakpoint-lg: 1360px;
         margin:1.5vh;
         font-size:1.3rem;
       }
+      @include media(md){
+        margin:1.5vh;
+        font-size:4vh;
+      }
     }
 
     li {
@@ -225,6 +261,10 @@ $breakpoint-lg: 1360px;
       @include media(sm){
         margin-left:1.5vh;
         font-size: 0.9rem;
+      }
+      @include media(md){
+        margin:1vh;
+        font-size:1rem;
       }
     }
   }
