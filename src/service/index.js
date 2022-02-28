@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API =
-  "http://localhost:5000/characters";
+"http://ec2-3-89-196-224.compute-1.amazonaws.com/characters"
 
 export async function getCharacter() {
   try {
