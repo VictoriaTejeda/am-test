@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { Modal } from "./Modal";
-import { saveCharacter } from "../service";
+
 
 export const ButtonHeader = ({allCharacters}) => {
 
   const [modalState, setModalState] = useState(false);
-
-  const handleSubmit=(data)=>{
-    setTimeout(() => saveCharacter(data), 1000)
-    ;
-  }
 
   return (
     <>
@@ -38,7 +33,7 @@ export const ButtonHeader = ({allCharacters}) => {
           >
             AGREGAR <i className="bi bi-person-plus-fill"></i>
           </button>
-          <Modal modalState={modalState} setModalState={setModalState} addCharacter={handleSubmit}></Modal>
+          <Modal modalState={modalState} setModalState={setModalState}></Modal>
         </div>
       </section>
     </>
