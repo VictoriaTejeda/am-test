@@ -11,8 +11,8 @@
   padding: 40px;
 
   .container-modal {
-    width: 80vh;
-    min-height: 40vh;
+    width: 60vw;
+    min-height: 20vh;
     background-color: #fff;
     position: relative;
     border-radius: 2vh;
@@ -21,17 +21,23 @@
     color: black;
 
     @media screen and (max-width: 600px){
-      width: 200%;
+      width: 100%;
+      height:50vh ;
+      overflow-y: scroll;
+    }
+
+    @media screen and (max-width: 1000px){
+      width: 80%;
       height:60vh ;
       overflow-y: scroll;
     }
 
     .bi{
         float: right;
-        font-size: 1.3rem;
+        font-size: 2.5vh;
         &:hover{
             color:red;
-            font-size: 1.5rem;
+            font-size: 4vh;
         }
     }
     .add-character {
@@ -40,6 +46,7 @@
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
+     
     }
     .column {
       display: flex;
@@ -47,6 +54,7 @@
       flex-basis: 100%;
       flex: 1;
       margin: 2vh;
+    
 
       .input-add{
           background-color:#e6ebeaea;
@@ -61,6 +69,9 @@
               left: 0;
               bottom: 1.2vh;
           };
+          @media screen and (max-width: 600px){
+            width: 100%;
+          }
       }
     }
     .container-radio-btn{
@@ -82,10 +93,22 @@
         border: Solid #6B63B5;
         color: #fff;
         font-size: 1.3rem;
+        &:hover {
+          background-color: #6B63B5;
+        }
+        &:focus-visible {
+          background-color:#263238;
+        }
+        &:active {
+          transform: scale(0.98);
+        }
     }
     .img-input{
         width: 40vh;
         height: 3vh;
+        @media screen and (max-width: 600px){
+          width: 100%;
+        }
         
     }
   }

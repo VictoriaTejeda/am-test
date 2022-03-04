@@ -4,9 +4,8 @@ $active-color: #6b63b5;
 $font-color1: #ffff;
 
 $breakpoint-xs: 360px;
-$breakpoint-sm: 767px;
-$breakpoint-md: 1023px;
-$breakpoint-lg: 1360px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 980px;
 
 @mixin media($media) {
   @if $media == xs {
@@ -15,14 +14,6 @@ $breakpoint-lg: 1360px;
     }
   } @else if $media == sm {
     @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
-      @content;
-    }
-  } @else if $media == md {
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
-      @content;
-    }
-  } @else if $media == lg {
-    @media (min-width: $breakpoint-lg) {
       @content;
     }
   }
@@ -57,8 +48,8 @@ body {
   .container-btn-menu {
     float: right;
     margin: {
-      right: 10rem;
-      bottom: 5rem;
+      right: 20vh;
+      bottom: 15vh;
     }
 
     @include media(xs) {
@@ -80,9 +71,9 @@ body {
       background-color: $active-color;
       border-color: $active-color;
       color: $font-color1;
-      width: 13rem;
-      height: 3rem;
-      font-size: 1.2rem;
+      width: 37vh;
+      height: 8vh;
+      font-size: 2.5vh;
       letter-spacing: 0.2em;
       font-weight: 400;
 
@@ -95,6 +86,7 @@ body {
         width:20vh;
         height: 4vh;
         font-size:1.5vh;
+        align-self: center;
       }
     }
     .favorite-btn {
@@ -103,8 +95,11 @@ body {
         color: #ffff;
         align-self: center;
         margin: 1vh;
-        font-size: 1.3rem;
+        font-size: 2.5vh;
       @include media(xs) {
+        font-size: 2vh;
+      }
+      @include media(sm) {
         font-size: 2vh;
       }
     }
@@ -119,8 +114,11 @@ body {
         color: #ffff;
         align-self: center;
         margin: 1vh;
-        font-size: 1.4rem;
+        font-size: 2.5vh;
         @include media(xs) {
+          font-size: 2vh;
+        }
+        @include media(sm) {
           font-size: 2vh;
         }
       }
@@ -136,7 +134,7 @@ body {
       }
   }
     .dropdown-menu {
-      width: 26rem;
+      width: 74vh;
       background-color: $active-color;
       color: $font-color1;
       font-size: 1.3rem;
@@ -178,8 +176,8 @@ body {
 
 .logo {
       margin: {
-        top: 5rem;
-        bottom: 3rem;
+        top: 3vh;
+        bottom: 7vh;
       }
       width: 40vh;
       align-self: center;
@@ -203,13 +201,13 @@ body {
         }
       }
       @include media(sm) {
-        width: 25vh;
+        width: 30vh;
         margin: {
-          top: 1rem;
-          bottom: 1rem;
+          top: 2rem;
+          bottom: 2rem;
         }
         &:hover {
-          width: 30vh;
+          width: 35vh;
         }
       }
       
@@ -246,9 +244,9 @@ body {
         color: $font-color1;
         border-color: $active-color;
         border-width: .5vh;
-        width: 20rem;
-        height: 4.5rem;
-        font-size: 1.2rem;
+        width: 25vw;
+        height: 8vh;
+        font-size: 3vh;
         letter-spacing: 0.3em;
         @include button-bg($primary-color);
 
@@ -270,9 +268,6 @@ body {
           }
         }
         @include media(sm){
-          width: 25vh;
-          height: 5vh;
-          font-size: 1rem;
         letter-spacing: 0em;
           margin: {
             right: 1.2vh;

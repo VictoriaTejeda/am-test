@@ -7,25 +7,29 @@ $ravenclaw: linear-gradient(135deg, #ffc700 0%, #fff388 100%);
 $hufflepuff: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
 
 $breakpoint-xs: 360px;
-$breakpoint-sm: 767px;
+$breakpoint-sm: 600px;
 $breakpoint-md: 1000px;
 $breakpoint-lg: 1024px;
 
 @mixin media($media) {
   @if $media == xs {
-    @media (max-width: $breakpoint-sm)  { @content; }
-  }
-  @else if $media == sm {
-    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) { @content; }
-  }
-  @else if $media == md {
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) { @content; }
-  }
-  @else if $media == lg {
-    @media (min-width: $breakpoint-lg) { @content; }
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $media == sm {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $media == md {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $media == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
   }
 }
-
 
 .characterList {
   display: flex;
@@ -36,10 +40,10 @@ $breakpoint-lg: 1024px;
   margin-top: 10vh;
   width: 100%;
 
-  @include media(xs){
+  @include media(xs) {
     margin-top: 4vh;
   }
-  @include media(sm){
+  @include media(sm) {
     margin-top: 4.2vh;
   }
 
@@ -57,45 +61,41 @@ $breakpoint-lg: 1024px;
       left: 2vh;
       top: 5vh;
       bottom: 4vh;
-      
     }
     @include media(xs) {
-        flex-direction:column;
-        width: 20vh;
-        height: 30vh;
-        margin: {
-            right: 2vh;
-            left: 2vh;
-            top: 2.5vh;
-            bottom: 2vh;
-            
-          }      
+      flex-direction: column;
+      width: 20vh;
+      height: 30vh;
+      margin: {
+        right: 2vh;
+        left: 2vh;
+        top: 2.5vh;
+        bottom: 2vh;
       }
+    }
 
-      @include media(sm) {
-        width: 32vh;
-        height: 25vh;
-        margin: {
-            right: 1.5vh;
-            left: 1.5vh;
-            top: 2.5vh;
-            bottom: 2vh;
-            
-          }      
+    @include media(sm) {
+      width: 60vh;
+      height: 30vh;
+      margin: {
+        right: 1.5vh;
+        left: 1.5vh;
+        top: 2.5vh;
+        bottom: 2vh;
       }
+    }
 
-      @include media(md) {
-        width: 40vw;
-        height: 25vw;
-        margin: {
-            right: 2vh;
-            left: 2vh;
-            top: 2.3vh;
-            bottom: 1.7vh;
-            
-          }      
+    @include media(md) {
+      width: 65vh;
+      height: 30vh;
+      margin: {
+        right: 2vh;
+        left: 2vh;
+        top: 2.3vh;
+        bottom: 1.7vh;
       }
-      
+    }
+
     .house {
       display: flex;
       justify-content: center;
@@ -113,46 +113,45 @@ $breakpoint-lg: 1024px;
       border-bottom-left-radius: 16px;
       border-top-left-radius: 16px;
       @include media(xs) {
-        flex-direction:column;
+        flex-direction: column;
         width: 20vh;
         height: 15vh;
         border-top-right-radius: 16px;
-        border-bottom-left-radius:0%;
+        border-bottom-left-radius: 0%;
       }
 
       @include media(sm) {
-        flex-direction:column;
-        width: 12vh;
-        height: 25vh;
+        flex-direction: column;
+        width: 20vh;
+        height: 30vh;
       }
       @include media(md) {
-        flex-direction:column;
-        height: 25vw;
+        flex-direction: column;
+        width: 25vh;
+        height: 30vh;
       }
 
       .character {
         align-self: center;
         border-radius: 50%;
-        width: 10rem;
-        height: 10rem;
+        width: 20vh;
+        height: 20vh;
         @include media(xs) {
-            width:12vh;
-            height:12vh ;
-            margin: 2vh;
+          width: 12vh;
+          height: 12vh;
+          margin: 2vh;
         }
         @include media(sm) {
-          width:10vh;
-          height:10vh ;
+          width: 14vh;
+          height: 14vh;
           margin: 2vh;
         }
         @include media(md) {
-          width:20vh;
-          height:20vh ;
+          width: 18vh;
+          height: 18vh;
           margin: 2vh;
         }
       }
-     
-      
     }
     .Gryffindor {
       background: $gryfindor;
@@ -169,60 +168,57 @@ $breakpoint-lg: 1024px;
     }
     .info {
       display: flex;
-      flex-direction:column;
-     justify-content: center;
-      @include media(xs){
+      flex-direction: column;
+      justify-content: center;
+      @include media(xs) {
         flex-direction: column-reverse;
       }
       p {
         display: flex;
         justify-content: space-between;
-        width:40vh;
+        width: 38vh;
         margin: {
-          top:0;
+          top: 0;
           left: 2vh;
           bottom: 1.2vh;
-        };
-        font-size: 1.2rem;
+        }
+        font-size: 2vh;
         @include media(xs) {
-            width:16vh ;
-            font-size: 1.5vh;
-            margin-top: 2vh;
+          width: 16vh;
+          font-size: 1.5vh;
+          margin-top: 2vh;
         }
 
         @include media(sm) {
-          width:16vh ;
-          font-size:1.4vh;
+          width: 16vh;
+          font-size: 1.4vh;
           margin: 1.5vh;
-          
-      } @include media(md) {
-        width:18vw ;
-        font-size:3vh;
-        margin: 2vh;
-        
-    }
-
-
+        }
+        @include media(md) {
+          width: 16vh;
+          font-size: 1.4vh;
+          margin: 1.5vh;
+        }
 
         .favorite-icon {
-          width: 1rem;
+          width: 2vh;
           @include media(xs) {
-            width:2vh;
-        }
+            width: 2vh;
+          }
         }
       }
     }
 
     .false {
       background-color: #cccccc;
-      width: 60vh;
+      width: 45vh;
       border-top-right-radius: 1rem;
       border-bottom-right-radius: 1rem;
-      @include media(xs){
-          width:20vh;
-          height:19vh;
-          border-top-right-radius:0;
-          border-bottom-left-radius: 1rem;
+      @include media(xs) {
+        width: 20vh;
+        height: 19vh;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 1rem;
       }
     }
 
@@ -232,39 +228,39 @@ $breakpoint-lg: 1024px;
       margin-bottom: 3vh;
       font-weight: 800;
       color: $font-color1;
-      font-size: 2rem;
-      @include media(xs){
+      font-size: 4vh;
+      @include media(xs) {
         margin: 1vh;
         font-size: 1rem;
         text-align: center;
       }
-      @include media(sm){
-        margin:1.5vh;
-        font-size:1.3rem;
+      @include media(sm) {
+        margin: 1.5vh;
+        font-size: 3vh;
       }
-      @include media(md){
-        margin:1.5vh;
-        font-size:4vh;
+      @include media(md) {
+        margin: 1.5vh;
+        font-size: 4vh;
       }
     }
 
     li {
       list-style: none;
-      font-size: 1.3rem;
+      font-size: 2vh;
       margin: {
         left: 2.5vh;
         bottom: 1vh;
       }
-      @include media(xs){
+      @include media(xs) {
         display: none;
       }
-      @include media(sm){
-        margin-left:1.5vh;
-        font-size: 0.9rem;
+      @include media(sm) {
+        margin-left: 1.5vh;
+        font-size: 1.5vh;
       }
-      @include media(md){
-        margin:1vh;
-        font-size:1rem;
+      @include media(md) {
+        margin: 1vh;
+        font-size: 1.5vh;;
       }
     }
   }

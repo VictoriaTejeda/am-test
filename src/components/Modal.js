@@ -128,7 +128,7 @@ export const Modal = ({ modalState, setModalState }) => {
                 </div>
               </div>
               <div>
-                <label htmlFor="url-img">
+                <label className="url-img" htmlFor="url-img">
                   URL DE LA FOTOGRAFIA DEL PERSONAJE
                 </label>
                 <input
