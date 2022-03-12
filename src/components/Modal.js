@@ -129,13 +129,12 @@ export const Modal = ({ modalState, setModalState }) => {
               </div>
               <div>
                 <label className="url-img" htmlFor="url-img">
-                  URL DE LA FOTOGRAFIA DEL PERSONAJE
                 </label>
                 <input
                   className="img-input"
-                  type="url"
+                  type="file"
                   name="url-img"
-                  placeholder="https://static.wikia.nocookie.net/esharrypotter/images/2/2d/Dobby_el_elfo.PNG"
+                  accept="image/png, image/jpeg"
                 ></input>
               </div>
               <button

@@ -13,6 +13,8 @@ export const useAddCharacter = () => {
     const isAlive= formData.get("alive")==='true'? true:false;
     const ishogwartsStudent= formData.get("hogwartsStudent")==='true'? true:false;
     const ishogwartsStaff= formData.get("hogwartsStaff")==='true'? true:false;
+    const urlImg= formData.get("url-img");
+   
     const data = {
       name: formData.get("name"),
       eyeColour: formData.get("eyes-color"),
@@ -25,7 +27,7 @@ export const useAddCharacter = () => {
       alive:  isAlive,
       hogwartsStaff: ishogwartsStaff,
       hogwartsStudent: ishogwartsStudent,
-      image: formData.get("url-img"),
+      image: urlImg,
     };
 
     setTimeout(() => saveCharacter(data), 1000)

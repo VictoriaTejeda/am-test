@@ -1,15 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { ButtonHeader } from "./components/ButtonHeader";
 import { Characters } from "./components/Characters";
 import { useFilterData } from "./hooks/useFilterData";
 import Title from "./asset/image/Title.png";
+import "./style/Item.scss";
 import "./style/App.scss";
 
 function App() {
 
   const {hogwartsCharacters, filterStudent, filterStaff, allCharacters}= useFilterData()
-
+  
 
   return (
     <div className="App">
@@ -42,5 +43,10 @@ function App() {
     </div>
   );
 }
-
-export default App;
+ 
+const mapStateToProps=state=>{
+return{
+  characters:state.characters
+}
+}
+export default connect(mapStateToProps,null) (App);

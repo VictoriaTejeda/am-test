@@ -153,10 +153,22 @@ body {
       font-size: 1rem;
       }
       li {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         margin: {
           top: 1vh;
           left: 2.3vh;
           bottom: 1vh;
+        }
+        img{
+          border-radius: 50%;
+          width: 8vh;
+          height: 8vh;
+        }
+        i{
+          margin-left: 5vh;
+          text-align: center;
         }
       }
       hr {

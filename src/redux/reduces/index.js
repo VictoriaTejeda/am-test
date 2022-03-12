@@ -2,12 +2,15 @@ const initialState = {
     favorites: [],
   };
   
-  function reducer(state = initialState, action) {
+  
+  function reducer(state= initialState, action) {
+    
     switch (action.type) {
-      case "ADD_FAVORITES": {
+      case "SET_FAVORITES": {
         return {
           ...state,
           favorites: [...state.favorites, action.payload], 
+         
         };
       }
       case "REMOVE_FAVORITES": {

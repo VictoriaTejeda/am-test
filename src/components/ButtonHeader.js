@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+
 import { Modal } from "./Modal";
+import {  useSelector } from "react-redux";
+
+import { Myfavorite } from "./Myfavorite";
 
 
-export const ButtonHeader = ({allCharacters}) => {
-
+ export const ButtonHeader = () => {
   const [modalState, setModalState] = useState(false);
+  const myFavorite=useSelector((store)=>store.favorites);
 
   return (
     <>
@@ -21,15 +25,17 @@ export const ButtonHeader = ({allCharacters}) => {
             <i className="bi bi-bookmark-fill"></i>
           </button>
           <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li>Action</li>
-            <hr />
-            <li>Another action</li>
-            <hr />
-            <li>Something else here</li>
+           {
+             myFavorite.map((favorite)=>(
+              <Myfavorite fav={favorite}  key={favorite.id} />
+             ))
+           }
           </ul>
           <button
             className="add-btn"
-            onClick={()=>{setModalState(true)}}
+            onClick={() => {
+              setModalState(true);
+            }}
           >
             AGREGAR <i className="bi bi-person-plus-fill"></i>
           </button>
@@ -39,3 +45,6 @@ export const ButtonHeader = ({allCharacters}) => {
     </>
   );
 };
+
+
+

@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import{addFavorites, removeFavorites} from "../redux/actions"
-import "../style/Item.scss";
+
 
 export const Item = ({ character }) => {
-  const favorites= useSelector((state)=>state.favorite);
-  const dispatch=useDispatch()
+  
+  const favorites= useSelector((state)=>state.favorites);
+  const dispatch=useDispatch();
 
   const addORDeleteFavorites=()=>{
    if(favorites.find((favorite) => favorite.id ===character.id)){

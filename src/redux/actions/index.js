@@ -1,5 +1,5 @@
 export function addFavorites(character) {
-    return { type: "ADD_FAVORITES", payload: character };
+    return { type: "SET_FAVORITES", payload: character };
   }
   
   export function removeFavorites(character) {
